@@ -1,6 +1,7 @@
 ﻿using Domain.Entities.Base;
 using System;
 using System.Collections.Generic;
+using System.Reflection.Metadata.Ecma335;
 using System.Text;
 
 namespace Domain.Entities
@@ -15,7 +16,6 @@ namespace Domain.Entities
 
         public string Name { get; private set; }
         public string Year { get; private set; }
-
         public bool Rented { get; private set; }
 
         public bool CheckName(string name)
@@ -24,5 +24,7 @@ namespace Domain.Entities
                 return false;
             else return true;
         }
+
+      
     }
 }

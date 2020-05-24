@@ -57,6 +57,8 @@ namespace Domain.Entities
         {
             client.Car = car;
         }
-
+        public bool AddClient(Client client) => true;
+        public bool UpdateClient(Client client) => true;
+        public bool DeleteClient(Client client) => true;
     }
 }

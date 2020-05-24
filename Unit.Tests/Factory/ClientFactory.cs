@@ -16,7 +16,7 @@ namespace Unit.Tests.Factory
         }
         
         public virtual DriverLicense DV_1 { get; set; } = new DriverLicense(123456, "B");
-        public virtual Client Client_1 { get; set; }
+        public Client Client_1 { get; set; }
         public virtual Car Car_1 { get; set; }
     }
 }
