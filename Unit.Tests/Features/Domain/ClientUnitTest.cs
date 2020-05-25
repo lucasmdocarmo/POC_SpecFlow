@@ -29,7 +29,7 @@ namespace Unit.Tests.Features.Domain
         [InlineData("Lucas")]
         [InlineData("Clauber")]
         [InlineData("Gioconda")]
-        public void CanIInsertNewClient_ShouldReturnTrue(string name)
+        public bool CanIInsertNewClient_ShouldReturnTrue(string name)
         {
             //Arrange
             var cli = new Client(name, EStatus.Gold, base.DV_1);
@@ -38,11 +38,14 @@ namespace Unit.Tests.Features.Domain
             mock.Setup(m => m.AddClient(cli)).Returns(true);
             // act
             var mockResult = mock.Object.AddClient(cli);
-            
+
             // assert
-            Assert.True(mockResult);
+            if (mockResult)
+                Assert.True(mockResult);
+            return true;
+
         }
-        
+
         [Fact]
         public void CanIDeleteClient_ShouldReturnTrue()
         {

@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Text;
 using TechTalk.SpecFlow;
 using Unit.Tests.Factory;
+using Unit.Tests.Features.Domain;
 using Xunit;
 
 namespace Integreation.Tests.Steps
@@ -15,11 +16,13 @@ namespace Integreation.Tests.Steps
     [Trait("Integration Test","Rent Feature")]
     public class RentalSteps : ClientFactory
     {
+        ClientUnitTest clientUni = new ClientUnitTest();
 
         [Given(@"Existing Client")]
         public void GivenExistingClient()
         {
-            NUnit.Framework.Assert.True(base.Client_1.Valid);
+            var result = clientUni.CanIInsertNewClient_ShouldReturnTrue("lucas");
+            NUnit.Framework.Assert.True(result);
         }
 
         [Given(@"Client has Driver Licence")]
@@ -44,9 +47,8 @@ namespace Integreation.Tests.Steps
             Mock<IClientService> mock = new Mock<IClientService>();
 
             mock.Setup(m => m.ReserveCar()).Returns(true);
-            // act
-            var mockResult = mock.Object.ReserveCar();
 
+            var mockResult = mock.Object.ReserveCar();
             NUnit.Framework.Assert.True(mockResult);
         }
 
