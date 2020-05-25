@@ -11,5 +11,17 @@ namespace Domain.Services
         {
             return true;
         }
+        public bool UpdateClient(Client client)
+        {
+            return true;
+        }
+        public bool DelteClient(Client client)
+        {
+            return true;
+        }
+        public bool ReserveCar()
+        {
+            return true;
+        }
     }
 }

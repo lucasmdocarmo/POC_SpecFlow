@@ -17,7 +17,7 @@ namespace Unit.Tests.Features.Domain
         [InlineData("Lucas")]
         [InlineData("Clauber")]
         [InlineData("Monalisa")]
-        public void CanIInsertNewClient(string name)
+        public void CanICheckStatusOfClient_ShouldReturnTrue(string name)
         {
             //AAA
             var result = base.Client_1.CheckStatusOfClient(base.Client_1);
@@ -39,6 +39,35 @@ namespace Unit.Tests.Features.Domain
             // act
             var mockResult = mock.Object.AddClient(cli);
             
+            // assert
+            Assert.True(mockResult);
+        }
+        
+        [Fact]
+        public void CanIDeleteClient_ShouldReturnTrue()
+        {
+            //Arrange
+            var cli = base.Client_1;
+
+            Mock<IClientService> mock = new Mock<IClientService>();
+            mock.Setup(m => m.DelteClient(cli)).Returns(true);
+            // act
+            var mockResult = mock.Object.DelteClient(cli);
+
+            // assert
+            Assert.True(mockResult);
+        }
+        [Fact]
+        public void CanIUpdateClient_ShouldReturnTrue()
+        {
+            //Arrange
+            var cli = base.Client_1;
+
+            Mock<IClientService> mock = new Mock<IClientService>();
+            mock.Setup(m => m.UpdateClient(cli)).Returns(true);
+            // act
+            var mockResult = mock.Object.UpdateClient(cli);
+
             // assert
             Assert.True(mockResult);
         }
